@@ -1,5 +1,13 @@
 # 🎯 AI Interview Coach
 
+![React](https://img.shields.io/badge/React-18-61DAFB?style=flat&logo=react)
+![Flask](https://img.shields.io/badge/Flask-3.0-000000?style=flat&logo=flask)
+![LLaMA](https://img.shields.io/badge/LLaMA-3.3_70B-0467DF?style=flat)
+![Groq](https://img.shields.io/badge/Groq-Free_API-F55036?style=flat)
+![Voice](https://img.shields.io/badge/Voice-Web_Speech_API-8B5CF6?style=flat)
+![License](https://img.shields.io/badge/License-MIT-green?style=flat)
+# 🎯 AI Interview Coach
+
 A production-ready web app that simulates job interviews and delivers structured AI feedback on your answers.
 
 ---
