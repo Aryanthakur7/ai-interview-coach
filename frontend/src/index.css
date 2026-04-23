@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg:       #090b10;
+  --surface:  #0f1219;
+  --border:   #1e2333;
+  --accent:   #6ee7b7;    /* emerald-300 */
+  --accent2:  #818cf8;    /* indigo-400  */
+  --muted:    #4b5563;
+  --text:     #e2e8f0;
+  --text-dim: #94a3b8;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  min-height: 100vh;
+}
+
+/* ── noise grain overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+}
+
+/* ── glow ring on focused inputs / textareas ── */
+textarea:focus, input:focus, select:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--accent);
+}
+
+/* ── fade-in slide-up ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.fade-up { animation: fadeUp .45s cubic-bezier(.22,.68,0,1.2) both; }
+
+/* ── shimmer skeleton ── */
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position:  400px 0; }
+}
+.skeleton {
+  background: linear-gradient(90deg, #1e2333 25%, #252d40 50%, #1e2333 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite;
+  border-radius: 6px;
+}
+
+/* ── score ring ── */
+@keyframes dashAnim {
+  from { stroke-dashoffset: 440; }
+}
+
+/* ── pulse dot ── */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1;    transform: scale(1);   }
+  50%       { opacity: .45; transform: scale(.65); }
+}
+.pulse-dot { animation: pulse-dot 1.1s ease-in-out infinite; }
